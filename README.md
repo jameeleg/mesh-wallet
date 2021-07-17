@@ -1,2 +1,2 @@
 # mesh-wallet
-Simple implementation for waller management
+Simple implementation for wallet management
