@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, abort, request
+
 from wallet_manager import WalletManager
+from utils import is_valid_request
 
 app = Flask(__name__)
 wallet = WalletManager()
@@ -43,16 +45,6 @@ def handle_withdraw():
 
     new_balance = wallet.withdraw(amount)
     return jsonify(new_balance)
-
-
-def is_valid_request(request_data):
-    # try get 'amount' from request body
-    # if there is no amount, then return -1
-    amount = request_data.get('amount', -1)
-    if amount > 0:
-        return True, amount
-
-    return False, None
 
 
 if __name__ == '__main__':
