@@ -43,7 +43,9 @@ def handle_withdraw():
     if not valid:
         return abort(400, "User entered bad request")  # 401 bad request
 
-    new_balance = wallet.withdraw(amount)
+    ok, new_balance = wallet.withdraw(amount)
+    if not ok:
+        return abort(400, "Not enough money in the wallet")  # I'm not sure if it should be 400??
     return jsonify(new_balance)
 
 

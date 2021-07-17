@@ -43,11 +43,11 @@ class WalletManager(object):
             if amount > self._balance:
                 # if we don't have enough balance, we don't add the operation to history
                 # we keep in history, the operations that succeeded.
-                return "Don't have enough in the wallet. Operation is cancelled"
+                return False, "No enough balance in the wallet"
 
             self._balance = truncate_num(self._balance - amount)
             self._add_operation_to_history(Operations.SUBTRACT.name, amount)
-            return self._balance  # return the balance after fulfilling the withdraw operation
+            return True, self._balance  # return the balance after fulfilling the withdraw operation
 
     # END OF EXTERNAL APIS #
 
