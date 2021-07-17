@@ -44,7 +44,7 @@ Then you should see the output ```Running on http://localhost:6060/```
 
 
 ## (Testing) Prepared postman collection for you
-I've attached a file in `mesh-wallet/Wallet.postman_collection.jos` in the repository.
+I've attached a file in [mesh-wallet/Wallet.postman_collection.jos](https://github.com/jameeleg/mesh-wallet/blob/main/Wallet.postman_collection.json) in the repository.
 You can import it in your Postman app and invoke HTTP requests from the collection I've created.
 You can add, remove, update the requests as you want.
 
