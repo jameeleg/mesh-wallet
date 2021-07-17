@@ -13,6 +13,7 @@ There 3 files:
 1. `server.py`
 2. `wallet_manager.py`
 3. `utils.py`
+
 The file `server.py` is the executable file. Using the Flask framework, we define the endpoints and the handlers.
 The server, on startup, initiates an instance of type `WalletManager`, and uses it to server requests of `balance`, 
 `history`, `add` and `sub`.
