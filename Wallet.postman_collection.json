@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "61b90e85-92bf-438a-9519-477cf7ec492c",
+		"name": "Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wallet balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6060/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wallet index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6060/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wallet history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6060/history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wallet /add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 13\n}"
+				},
+				"url": {
+					"raw": "http://localhost:6060/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wallet /sub",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:6060/subtract",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"subtract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BAD wallet /add - negative amount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 13\n}"
+				},
+				"url": {
+					"raw": "http://localhost:6060/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BAD /sub negative amount not found",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount-field-not-exists\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:6060/subtract",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"subtract"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
