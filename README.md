@@ -9,9 +9,10 @@ The webserver supports the following features:
 ## Stack
 The webserver built on top of Flask framework.
 The webserver is written in python. Manages in-memory a wallet.
-There are two files:
+There 3 files:
 1. `server.py`
 2. `wallet_manager.py`
+3. `utils.py`
 The file `server.py` is the executable file. Using the Flask framework, we define the endpoints and the handlers.
 The server, on startup, initiates an instance of type `WalletManager`, and uses it to server requests of `balance`, 
 `history`, `add` and `sub`.
@@ -19,6 +20,7 @@ The server, on startup, initiates an instance of type `WalletManager`, and uses 
 `WalletManager` class is thread safe. It means that it can be called from many threads and keep the data synchronized and safe.
 The class exposes APIs that are thread-safe. (note that method that starts with `_` is internal method and should not be accessed out side the `WalletManager` class)
 
+`utils.py` - contains some helpers methods
 
 ## Weber server APIs
 1. `GET /` should return `Wallet app`
