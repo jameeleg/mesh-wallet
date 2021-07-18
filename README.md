@@ -14,6 +14,8 @@ There 3 files:
 2. `wallet_manager.py`
 3. `utils.py`
 
+(and 1 file `wallet_manager_test.py` for tests)
+
 The file `server.py` is the executable file. Using the Flask framework, we define the endpoints and the handlers.
 The server, on startup, initiates an instance of type `WalletManager`, and uses it to server requests of `balance`, 
 `history`, `add` and `sub`.
@@ -22,6 +24,8 @@ The server, on startup, initiates an instance of type `WalletManager`, and uses 
 The class exposes APIs that are thread-safe. (note that method that starts with `_` is internal method and should not be accessed out side the `WalletManager` class)
 
 `utils.py` - contains some helpers methods
+
+`wallet_manager_test.py` - unit tests for wallet manager. Tests also concurrency.
 
 ## Weber server APIs
 1. `GET /` should return `Wallet app`
@@ -43,6 +47,9 @@ You need to add a the following header in your HTTP Post request `"Content-Type"
 6. Start the server: `$ python3 server.py`
 Then you should see the output ```Running on http://localhost:6060/```
 
+## Running tests
+1. In your virtual env run the following
+2. `$  python3 wallet_manager_test.py`
 
 ## (Testing) Prepared postman collection for you
 I've attached a file in [mesh-wallet/Wallet.postman_collection.jos](https://github.com/jameeleg/mesh-wallet/blob/main/Wallet.postman_collection.json) in the repository.
