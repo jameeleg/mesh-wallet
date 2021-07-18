@@ -11,8 +11,8 @@ class Operations(Enum):
 
 
 class WalletManager(object):
-    def __init__(self):
-        self._balance = 0.00
+    def __init__(self, initial_balance=0.00):
+        self._balance = initial_balance
         self._history = []
         self._lock = threading.Lock()
 
@@ -33,10 +33,12 @@ class WalletManager(object):
         return self._history
 
     def deposit(self, amount):
+        if amount < 0:
+            return False, "Cannot deposit negative amount"
         with self._lock:
             self._balance = truncate_num(self._balance + amount)
             self._add_operation_to_history(Operations.ADD.name, amount)
-            return self._balance  # return the balance after fulfilling the deposit operation
+            return True, self._balance  # return the balance after fulfilling the deposit operation
 
     def withdraw(self, amount):
         with self._lock:
@@ -44,6 +46,8 @@ class WalletManager(object):
                 # if we don't have enough balance, we don't add the operation to history
                 # we keep in history, the operations that succeeded.
                 return False, "No enough balance in the wallet"
+            if amount <= 0:
+                return False, "Cannot withdraw negative amount"
 
             self._balance = truncate_num(self._balance - amount)
             self._add_operation_to_history(Operations.SUBTRACT.name, amount)

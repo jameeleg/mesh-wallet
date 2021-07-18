@@ -31,7 +31,7 @@ def handle_deposit():
     if not valid:
         return abort(400, "User entered bad request")  # 401 bad request
 
-    new_balance = wallet.deposit(amount)
+    is_ok, new_balance = wallet.deposit(amount)
     return jsonify(new_balance)
 
 
