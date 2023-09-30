@@ -6,7 +6,7 @@ The webserver supports the following features:
 3. Deposit amount to the wallet
 4. Withdraws amount from the wallet
 
-## Stack 123
+## Stack
 The webserver built on top of Flask framework.
 The webserver is written in python. Manages in-memory a wallet.
 There 3 files:
